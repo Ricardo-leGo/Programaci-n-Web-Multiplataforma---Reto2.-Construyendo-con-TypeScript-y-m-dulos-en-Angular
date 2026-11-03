@@ -2,12 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChange
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Noticia } from '../../Models/noticia';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-create-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './create-form.html',
   styleUrl: './create-form.css'
 })
