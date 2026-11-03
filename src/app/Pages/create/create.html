@@ -1,0 +1,13 @@
+<main class="container mx-auto p-4">
+<a [routerLink]="['/']" class="text-blue-600 hover:underline cursor-pointer">Home</a>
+<br/>
+<a [routerLink]="['/Create']" class="text-blue-600 hover:underline cursor-pointer">Crear</a>
+</main>
+
+<app-create-form (onSubmitNoticia)="handleCreateNoticia($event)" />
+
+<div class="my-8"></div>
+
+<app-list-form />
+
+<app-json-view/>
