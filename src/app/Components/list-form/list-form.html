@@ -1,0 +1,70 @@
+<div class="max-w-6xl mx-auto p-4 sm:p-6">
+  <div class="overflow-x-auto bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+    <table class="w-full text-sm text-left text-gray-600 dark:text-gray-300">
+      
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-300">
+        <tr>
+          <th scope="col" class="px-6 py-4">Imagen</th>
+          <th scope="col" class="px-6 py-4">Título</th>
+          <th scope="col" class="px-6 py-4">Autor</th>
+          <th scope="col" class="px-6 py-4">Contenido</th>
+          <th scope="col" class="px-6 py-4 text-center">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        @for (noticia of noticias(); track noticia.id) {
+          <tr class="hover:bg-gray-50 dark:hover:bg-gray-750 transition">
+            
+            <td class="px-6 py-4 whitespace-nowrap">
+              <img 
+                [src]="noticia.imagenUrl" 
+                [alt]="noticia.titulo" 
+                class="w-12 h-12 rounded-lg object-cover border border-gray-200 dark:border-gray-600"
+                onerror="this.src='https://via.placeholder.com/150'"
+              />
+            </td>
+            
+            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+              {{ noticia.titulo }}
+            </td>
+            
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                {{ noticia.autor }}
+              </span>
+            </td>
+            
+            <td class="px-6 py-4 max-w-xs truncate" [title]="noticia.contenido">
+              {{ noticia.contenido }}
+            </td>
+
+            <td class="px-6 py-4 whitespace-nowrap text-center space-x-2">
+  
+    <a [routerLink]="['/Edit', noticia.id]" 
+        class="px-3 py-1.5 text-xs font-medium text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-600 rounded-lg transition"
+    >
+        Editar
+    </a>
+
+    
+    <button 
+        (click)="eliminar(noticia.id)" 
+        class="px-3 py-1.5 text-xs font-medium text-red-600 hover:text-white hover:bg-red-600 border border-red-600 rounded-lg transition"
+    >
+        Eliminar
+    </button>
+    </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+              No hay noticias registradas. ¡Crea una nueva!
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+</div>

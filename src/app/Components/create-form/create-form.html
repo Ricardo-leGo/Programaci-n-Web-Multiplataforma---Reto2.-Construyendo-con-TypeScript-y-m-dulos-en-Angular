@@ -1,0 +1,59 @@
+<form [formGroup]="noticiaForm" (ngSubmit)="guardarNoticia()" class="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 space-y-5">
+  
+  <div class="flex flex-col space-y-1 text-left">
+    <label for="titulo" class="text-sm font-semibold text-gray-700 dark:text-gray-200">Título de la noticia</label>
+    <input 
+      id="titulo" 
+      type="text" 
+      formControlName="titulo" 
+      placeholder="Escribe un título llamativo..." 
+      class="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition dark:text-white" 
+    />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="flex flex-col space-y-1 text-left">
+      <label for="autor" class="text-sm font-semibold text-gray-700 dark:text-gray-200">Autor</label>
+      <input 
+        id="autor" 
+        type="text" 
+        formControlName="autor" 
+        placeholder="Nombre del autor" 
+        class="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition dark:text-white" 
+      />
+    </div>
+
+    <div class="flex flex-col space-y-1 text-left">
+      <label for="imagenUrl" class="text-sm font-semibold text-gray-700 dark:text-gray-200">URL de la Imagen</label>
+      <input 
+        id="imagenUrl" 
+        type="url" 
+        formControlName="imagenUrl" 
+        placeholder="https://ejemplo.com/imagen.jpg" 
+        class="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition dark:text-white" 
+      />
+    </div>
+  </div>
+
+  <div class="flex flex-col space-y-1 text-left">
+    <label for="contenido" class="text-sm font-semibold text-gray-700 dark:text-gray-200">Contenido</label>
+    <textarea 
+      id="contenido" 
+      formControlName="contenido" 
+      rows="5" 
+      placeholder="Redacta el cuerpo completo de la noticia..." 
+      class="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-y dark:text-white"
+    ></textarea>
+  </div>
+
+  <div class="pt-2">
+    <button 
+      type="submit" 
+      [disabled]="noticiaForm.invalid" 
+      class="w-full py-2.5 px-5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    >
+      Guardar Noticia
+    </button>
+  </div>
+
+</form>
